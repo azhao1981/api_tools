@@ -3,7 +3,7 @@
 case $1 in
   "start" )
     echo start
-    nohup bundle exec ruby hi.rb > ./01.log &
+    nohup bundle exec ruby hi.rb > ./tmp/01.log &
     ;;
   "stop" )
     echo stop
