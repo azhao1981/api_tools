@@ -6,7 +6,7 @@ require "redis"
 require "redis-namespace"
 require "haml"
 require 'net/http'
-set :bind, 'localhost'
+set :bind, '0.0.0.0'
 
 get '/test_a' do
   puts 'get data '
