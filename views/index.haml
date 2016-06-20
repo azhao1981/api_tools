@@ -1,0 +1,60 @@
+%form{:method => 'POST', :action => '/set_settings'}
+  %table{:width => '500px'}
+    %tr
+      %td{:width => '200px'}
+        %label{:for => 'appid'} 
+        appid:
+        %input{:type => 'text',:name => 'appid',  :value => @rds[:appid] || ""}
+      %td{:width => '200px'}
+        %label{:for => 'secret'}
+        secret:
+        %input{:type => 'text',:name => 'secret',  :value => @rds[:secret] || ""}
+    %tr
+      %td        
+        %label{:for => 'url'} 
+          url:
+          %input{:type => 'text',:name => 'url',  :value => @rds[:url] || ""}
+      %td
+        %label{:for => 'email'} 
+          email:
+          %input{:type => 'text',:name => 'email',  :value => @rds[:email] || ""}
+    %tr
+      %td
+        %label{:for => 'number'} 
+          number:
+          %input{:type => 'text',:name => 'number',  :value => @rds[:number] || ""}      
+      %td
+        %label{:for => 'openid'} 
+          openid:
+          %input{:type => 'text',:name => 'openid',  :value => @rds[:openid] || ""}
+    %tr
+      %td
+        %label{:for => 'sso_secret'} 
+          sso_secret:
+          %input{:type => 'text',:name => 'sso_secret',  :value => @rds[:sso_secret] || ""}    
+      %td
+        %input{:type => 'submit', :value => '保存'}
+%p
+%hr
+
+%form{:method => 'POST', :action => '/send_msg'}
+  %label{:for => 'content'}
+    content:
+    %input{:type => 'text',:name => 'content',  :value => ''}
+
+  %input{:type => 'submit', :value => '发送'}
+
+%p
+response 结果  
+%form{:method => 'POST', :action => '/cls_msg'}
+  %input{:type => 'submit', :value => '清空'}
+%p
+<textarea rows="20" cols = "150"> #{@rds.get(:rsp_body)}</textarea>
+
+
+%p
+推送结果
+%form{:method => 'POST', :action => '/cls_push'}
+  %input{:type => 'submit', :value => '清空'}
+%p
+<textarea rows="20" cols = "150"> #{@rds.get(:push_info)}</textarea>
