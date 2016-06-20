@@ -94,9 +94,9 @@ XML
 end
 
 post '/rcv' do  
-  #puts request.body.read
-  #puts request.body
-  #puts params
+  puts request.body.read
+  puts request.body
+  puts params
   @request_payload = JSON.parse request.body.read
   puts @request_payload  
 
